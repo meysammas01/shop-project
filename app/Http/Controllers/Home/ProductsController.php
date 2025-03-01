@@ -24,9 +24,22 @@ class ProductsController extends Controller
             $products = Product::all();
         }        
 
-        $categories = Category::all();
+        $categories = Category::withCount('products')->paginate(10);
+                        // دریافت دسته‌بندی‌ها
+                        $categories = Category::withCount('products')->get();
+                       
+                        // دریافت محصولات دسته موبایل و تبلت و لپ تاپ
+                        $mobileCategory = Category::where('slug', 'موبایل-و-تبلت')->first();
+                        $laptopCategory = Category::where('slug', 'کامپیوتر-و-لپ-تاپ')->first();
+                        $sportCategory = Category::where('slug', 'تفریحی-و-ورزشی')->first();
 
-        return view('frontend.products.all', compact('products', 'categories'));
+                        $mobileProducts = $mobileCategory ? $mobileCategory->products()->get() : [];
+                      
+                        $laptopProducts = $laptopCategory ? $laptopCategory->products()->get() : [];
+                        $sportProducts = $sportCategory ? $sportCategory->products()->get() : [];
+
+
+        return view('frontend.products.all', compact('products', 'categories','mobileProducts', 'laptopProducts', 'sportProducts'));
     }
 
     public function show($product_id)
@@ -34,6 +47,7 @@ class ProductsController extends Controller
         $product = Product::findOrFail($product_id);
 
         $simillerProducts = Product::where('category_id', $product->category_id)->take(4)->get();
+
 
         return view('frontend.products.show', compact('product', 'simillerProducts'));
     }
@@ -58,4 +72,5 @@ class ProductsController extends Controller
 
         return $object->{$methodName}();
     }
+ 
 }

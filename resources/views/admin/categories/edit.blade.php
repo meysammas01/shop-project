@@ -46,6 +46,17 @@
                                           <input type="text" class="form-control" name="title" placeholder="عنوان را وارد کنید" value="{{ $category->title }}">
                                       </div>
                                   </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>تصویر دسته‌بندی</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                    @if($category->image)
+                                        <div>
+                                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->title }}" width="100">
+                                        </div>
+                                    @endif
+                                </div>
                               </div>
                           </div>
                           <!-- /.card-body -->

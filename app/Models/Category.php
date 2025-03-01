@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    // public $fillable = ['title', 'slug'];
+    public $fillable = ['title', 'slug', 'image'];
 
     public $guarded = [];
 

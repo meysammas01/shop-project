@@ -17,18 +17,25 @@ class CategoriesController extends Controller
 
     public function store(StoreRequest $request)
     {
-       $validatedData = $request->validated();
-
-       $createdCategory = Category::create([
-           'title' => $validatedData['title'],
-           'slug' => $validatedData['slug'],
-       ]);
-
-       if(!$createdCategory){
-           return back()->with('failed', 'دسته بندی ایجاد نشد');
-       }
-
-       return back()->with('success', 'دسته بندی ایجاد شد');
+        $validatedData = $request->validated();
+    
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('categories', 'public');
+        } else {
+            $imagePath = null;
+        }
+    
+        $createdCategory = Category::create([
+            'title' => $validatedData['title'],
+            'slug' => $validatedData['slug'],
+            'image' => $imagePath, // ذخیره تصویر
+        ]);
+    
+        if (!$createdCategory) {
+            return back()->with('failed', 'دسته بندی ایجاد نشد');
+        }
+    
+        return back()->with('success', 'دسته بندی ایجاد شد');
     }
 
     public function all()
@@ -54,21 +61,33 @@ class CategoriesController extends Controller
         return view('admin.categories.edit', compact('category'));
     } 
 
-    public function update(UpdateRequest $request,$category_id)
-    {
-        $validatedData = $request->validated();
+    public function update(UpdateRequest $request, $category_id)
+{
+    $validatedData = $request->validated();
+    $category = Category::findOrFail($category_id); // استفاده از findOrFail برای جلوگیری از خطا
 
-        $category = Category::find($category_id);
-        
-        $updatedCategory = $category->update([
-            'title' => $validatedData['title'],
-            'slug' => $validatedData['slug'],
-        ]);
-
-        if(!$updatedCategory){
-            return back()->with('failed', 'دسته بندی برزورسانی نشد');
+    // اگر تصویر جدید ارسال شده باشد
+    if ($request->hasFile('image')) {
+        // حذف تصویر قبلی در صورت وجود
+        if ($category->image && file_exists(storage_path('app/public/' . $category->image))) {
+            unlink(storage_path('app/public/' . $category->image));
         }
 
-        return back()->with('success', 'دسته بندی برزورسانی شد');
+        // ذخیره تصویر جدید
+        $imagePath = $request->file('image')->store('categories', 'public');
+        $validatedData['image'] = $imagePath;
     }
+
+    // بروزرسانی اطلاعات دسته‌بندی
+    $updatedCategory = $category->update($validatedData);
+
+    if (!$updatedCategory) {
+        return back()->with('failed', 'دسته‌بندی بروزرسانی نشد');
+    }
+
+    return back()->with('success', 'دسته‌بندی بروزرسانی شد');
+}
+
+
+
 }

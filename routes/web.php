@@ -18,6 +18,7 @@ Route::prefix('')->group(function (){
     Route::get('{product_id}/show', [HomeProductsController::class, 'show'])->name('home.product.show');
     Route::get('{product_id}/addToBasket', [BasketController::class, 'addToBasket'])->name('home.basket.add');
     Route::get('{product_id}/removeFromBasket', [BasketController::class, 'removeFromBasket'])->name('home.basket.remove');
+
 });
 
 Route::prefix('admin')->group(function (){

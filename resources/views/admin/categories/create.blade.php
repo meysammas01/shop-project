@@ -27,7 +27,8 @@
               <div class="col-md-12">
                   <div class="card card-defualt">
                       <!-- form start -->
-                      <form action="{{ route('admin.categories.store') }}" method="post">
+                      
+                      <form action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                           <div class="card-body">
                               <div class="row">
@@ -43,6 +44,12 @@
                                           <input type="text" class="form-control" name="title" placeholder="عنوان را وارد کنید">
                                       </div>
                                   </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>تصویر</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                </div>                                
                               </div>
                           </div>
                           <!-- /.card-body -->

@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <title>سون گرافیک</title>
+    <title>فروشگاه اینترنتی</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/bootstrap-rtl.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="/images/icons/favicon.png"/>
     <!--===============================================================================================-->
@@ -34,110 +50,376 @@
     <link rel="stylesheet" type="text/css" href="/css/util.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <!--===============================================================================================-->
+    
 </head>
-<body class="animsition">
+<body dir="rtl"  class="animsition bg-light">
 
-<!-- Header -->
-<header class="header-v4">
-    <!-- Header desktop -->
-    <div class="container-menu-desktop">
-        <!-- Topbar -->
-        <div class="top-bar">
-            <div class="content-topbar flex-sb-m h-full container">
-                <div class="left-top-bar">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                </div>
-
-                <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        راهنمای خرید و قوانین
-                    </a>
-
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        اکانت من
-                    </a>
-                </div>
+    <!-- start top nav -->
+    <div class="container-fluid bg-top-nav">
+        <div class="row">
+          <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+              <div class="col-sm-12 col-md-6 d-none d-md-block">
+                <p class="text-white">ارسال رایگان - ضمانت بازگشت وجه 30 روزه</p>
+              </div>
+              <div
+                class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center"
+              >
+                <nav class="nav custom-top-nav">
+                  <a class="nav-link text-white border-left" href="#"
+                    >آدرس فروشگاه</a
+                  >
+                  <a class="nav-link text-white border-left" href="#"
+                    >پیگیری سفارش</a
+                  >
+                  <a class="nav-link text-white border-left" href="#"
+                    >تلفن : 0912000000</a
+                  >
+                  <a
+                    class="nav-link text-white border-left d-none d-md-block"
+                    href="#"
+                    >ضمانت کیفیت محصولات</a
+                  >
+                </nav>
+              </div>
             </div>
-        </div>
-
-        <div class="wrap-menu-desktop how-shadow1">
-            <nav class="limiter-menu-desktop container">
-
-                <!-- Logo desktop -->
-                <a href="/" class="logo">
-                    <img src="/images/icons/logo-01.png" alt="IMG-LOGO">
-                </a>
-
-                <!-- Menu desktop -->
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-
-                        <li class="active-menu">
-                            <a href="/">صفحه اصلی</a>
-                        </li>
-                        <li>
-                            <a href="/">تماس با ما</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Icon header -->
-                <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+          </div>
+          <div class="container my-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-9">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button
+                      class="btn btn-secondary dropdown-toggle custom-btn-font-size"
+                      type="button"
+                      data-toggle="dropdown"
+                    >
+                      همه دست بندی ها
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">موبایل</a>
+                      <a class="dropdown-item" href="#">قطعات کامپیوتر</a>
+                      <a class="dropdown-item" href="#">پوشاک</a>
+                      <a class="dropdown-item" href="#">لوازم خانگی</a>
+                    </div>
+                  </div>
+                  <form class="" action="{{ route('home.products.all') }}">
+                  <input
+                    type="text" name="search"
+                    class="form-control input-top-nav-search"
+                    placeholder="جستجو بین بیش از 250000 کالا ..."
+                  />
+                  <div class="input-group-append">
+                    <button class="flex-c-m trans-04">
                         <i class="zmdi zmdi-search"></i>
-                    </div>
-
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{  is_null(Cookie::get('basket')) ? 0 : count(json_decode(Cookie::get('basket'), true)) }}">
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                    </div>
+                    </button>
+                
+                  </div>
+                </form>
                 </div>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Header Mobile -->
-    <div class="wrap-header-mobile">
-        <!-- Logo moblie -->
-        <div class="logo-mobile">
-            <a href="index.html"><img src="/images/icons/logo-01.png" alt="IMG-LOGO"></a>
-        </div>
-
-        <!-- Icon header -->
-        <div class="wrap-icon-header flex-w flex-r-m m-l-15">
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-11 js-show-modal-search">
-                <i class="zmdi zmdi-search"></i>
-            </div>
-
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+              </div>
+              <div
+                class="col-sm-12 col-md-3 d-flex justify-content-center align-items-center mt-csm-3"
+              >
+              <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{  is_null(Cookie::get('basket')) ? 0 : count(json_decode(Cookie::get('basket'), true)) }}">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
-
-            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-                <i class="zmdi zmdi-favorite-outline"></i>
-            </a>
+              </div>
+            </div>
+          </div>
+          <nav class="custom-nav w-100 position-relative">
+            <div class="container">
+              <div class="row">
+                <nav
+                  class="navbar navbar-expand-xl navbar-dark custom-navbar w-100"
+                >
+                  <a class="navbar-brand mr-2" href="#">فروشگاه</a>
+                  <button
+                    class="navbar-toggler custom-navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+  
+                  <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul class="navbar-nav custom-navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">خانه</a>
+                      </li>
+  
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link text-white dropdown-toggle"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                        >
+                          لوازم خانگی
+                        </a>
+                        <div
+                          class="dropdown-menu w-100 dropdown-image border-0 shadow"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <img
+                            src="assets/img/home.png"
+                            class="d-none d-xl-block"
+                            alt=""
+                          />
+                          <div class="container">
+                            <div class="row w-100">
+                              <div class="col-sm-12 col-md-12 col-lg-3">
+                                <ul class="nav flex-column pl-3">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" href="#">
+                                      <i class="fas fa-angle-left"></i> ماشین لباش
+                                      شویی</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#"
+                                      ><i class="fas fa-angle-left"></i> یخچال و
+                                      فریزر</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#"
+                                      ><i class="fas fa-angle-left"></i> اجاق
+                                      گاز</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> لوازم
+                                      صوتی و تصویری</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> ماشین
+                                      ظرفشویی</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> مبلمان</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> فرش و
+                                      قالیچه</a
+                                    >
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-3">
+                                <ul class="nav flex-column pl-3">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" href="#">
+                                      <i class="fas fa-angle-left"></i> ماشین لباش
+                                      شویی</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#"
+                                      ><i class="fas fa-angle-left"></i> یخچال و
+                                      فریزر</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#"
+                                      ><i class="fas fa-angle-left"></i> اجاق
+                                      گاز</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> لوازم
+                                      صوتی و تصویری</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> ماشین
+                                      ظرفشویی</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> مبلمان</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link"
+                                      ><i class="fas fa-angle-left"></i> فرش و
+                                      قالیچه</a
+                                    >
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link text-white dropdown-toggle"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                        >
+                          سوپر مارکت
+                        </a>
+                        <div
+                          class="dropdown-menu w-100"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"
+                            >Something else here</a
+                          >
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link text-white dropdown-toggle"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                        >
+                          لوازم دیجیتال
+                        </a>
+                        <div
+                          class="dropdown-menu w-100"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"
+                            >Something else here</a
+                          >
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link text-white dropdown-toggle"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                        >
+                          لوازم خودرو
+                        </a>
+                        <div
+                          class="dropdown-menu w-100"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"
+                            >Something else here
+                          </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="#">درباره ما</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="#">تماس ما</a>
+                      </li>
+                    </ul>
+                    <a href="" class="text-warning text-decoration-none login-btn" data-toggle="modal" data-target="#login-form">
+                      <i class="far fa-user"></i>
+                      <span>ورود</span>
+                    </a>
+                    <div class="modal fade" id="login-form" tabindex="-1" role="dialog">
+                      <div class="modal-dialog modal-dialog-centered show" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header border-0">
+                            <h5 class="modal-title text-center w-100" id="exampleModalLabel">ورود به سایت</h5>
+                        
+                          </div>
+                          <div class="modal-body">
+                            <form class="login-form" method="">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1" class="m-0">ایمیل</label>
+                                <input type="email" placeholder="ایمیل..." class="form-control form-control-sm" id="exampleInputEmail1" >
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1" class="m-0">کلمه عبور</label>
+                                <input type="password" placeholder="کلمه عبور..." class="form-control form-control-sm" id="exampleInputPassword1">
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input ml-0 " id="exampleCheck1">
+                                <label class="custom-control-label pt-1" for="exampleCheck1">مرا به خاطر بسپار</label>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-sm btn-block mt-4">ورود</button>
+                            </form>
+                          </div>
+                          <div class="modal-footer border-0 pt-0 d-flex justify-content-around">
+                          <a class="text-decoration-none" href="">رمز خود را فراموش کرده اید؟</a>
+                          <a class="text-decoration-none" href="">عضویت در سایت</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </nav>
         </div>
-
-        <!-- Button show menu -->
-        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-        </div>
-    </div>
+      </div>
 
 
-    <!-- Menu Mobile -->
-    <div class="menu-mobile">
-        <ul class="main-menu-m">
-            <li>
-                <a href="/">صفحه اصلی</a>
-            </li>
-            <li>
-                <a href="/">تماس با ما</a>
-            </li>
-        </ul>
-    </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <!-- Modal Search -->
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
         <div class="container-search-header">
@@ -153,7 +435,7 @@
             </form>
         </div>
     </div>
-</header>
+
 
 <!-- Cart -->
 <div class="wrap-header-cart js-panel-cart">
