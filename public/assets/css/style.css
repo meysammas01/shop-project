@@ -257,4 +257,30 @@ section.contact {
       width: 100%;
       margin-bottom: 20px;
   }
+  .shipping-wrapper div {
+    justify-self: center;
 }
+.cat-hover {
+  max-width: 50% !important;
+}
+input.form-control.input-top-nav-search {
+  width: 50% !important;
+}
+.input-group {
+  display: -webkit-box !important;
+}
+.icon-header-item.cl2.hov-cl1.trans-04.p-l-22.p-r-11.icon-header-noti.js-show-cart {
+  margin-right: auto;
+  left: 20px;
+  top: -40px;
+}
+.d-flex.justify-content-center.align-items-center.bg-white img {
+  width: 65px;
+  padding: 0px;
+}
+p.offer-section-title.position-absolute {
+  display: none;
+}
+}
+
+
