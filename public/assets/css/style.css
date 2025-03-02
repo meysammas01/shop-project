@@ -245,6 +245,21 @@ section.contact {
 .social-icons img:hover {
   transform: scale(1.2);
 }
+footer h5 {
+  color: #ffffff !important;
+}
+.footer-nav-custom li a {
+  color: #ffffff !important;
+}
+.tel-support p, .tel-support a {
+  color: #ffffff !important;
+}
+.social-icon p {
+  color: #ffffff !important;
+}
+.bg-top-nav {
+  background-color: #369f9b;
+}
 footer .row {
   background-color: #369f9b !important;
 }
