@@ -245,7 +245,15 @@ section.contact {
 .social-icons img:hover {
   transform: scale(1.2);
 }
-
+footer .row {
+  background-color: #369f9b !important;
+}
+footer .row.py-4.bg-white {
+  background-color: #d4f6ec !important;
+}
+.custom-top-nav .border-left {
+  border-color: #ffffff !important;
+}
 /* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
   .contact-content {
