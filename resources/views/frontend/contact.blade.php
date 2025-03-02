@@ -4,33 +4,35 @@
 @section('content')
 
 
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="contact-container">
-        <h1>تماس با ما</h1>
-        <p>برای ارتباط با ما می‌توانید فرم زیر را پر کنید یا از طریق شماره تماس و ایمیل با ما در ارتباط باشید.</p>
-        <form action="#" method="post">
-            <label for="name">نام و نام خانوادگی:</label>
-            <input type="text" id="name" name="name" required>
+<div class="contact-container">
+    <h1>تماس با ما 📞</h1>
+    <p>سوالی دارید؟ نیاز به راهنمایی دارید؟ همین حالا با ما در ارتباط باشید!</p>
 
-            <label for="email">ایمیل:</label>
-            <input type="email" id="email" name="email" required>
+    <div class="contact-content">
+        <!-- فرم تماس -->
+        <div class="contact-form">
+            <h2>📩 ارسال پیام</h2>
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="نام شما" required>
+                <input type="email" name="email" placeholder="ایمیل شما" required>
+                <textarea name="message" placeholder="پیام شما" rows="5" required></textarea>
+                <button type="submit">ارسال پیام</button>
+            </form>
+        </div>
 
-            <label for="message">پیام شما:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+        <!-- اطلاعات تماس -->
+        <div class="contact-info">
+            <h2>📍 راه‌های ارتباطی</h2>
+            <p><strong>📞 تلفن:</strong> ۰۲۱-۱۲۳۴۵۶۷۸</p>
+            <p><strong>📧 ایمیل:</strong> support@techstore.com</p>
+            <p><strong>📍 آدرس:</strong> تهران، خیابان ولیعصر، پلاک ۱۲۳</p>
+            <div class="social-icons">
 
-            <button type="submit">ارسال پیام</button>
-        </form>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
+
 
 
 
