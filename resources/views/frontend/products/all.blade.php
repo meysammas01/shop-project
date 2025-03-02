@@ -3,110 +3,55 @@
 @section('content')
 
 
+
+
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="assets/img/new-slider1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="assets/img/new-slider2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="assets/img/new-slider3.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- end top nav -->
       <div class="container-fluid bg-light pb-5">
         <div class="row">
            <!-- start slider nav -->
-       <div class="container mt-5">
-         <div class="row">
-           <div class="col-sm-12 col-lg-6 custom-col-lg-6">
-             <div
-               id="carouselExampleCaptions"
-               class="carousel slide carousel-fade"
-               data-ride="carousel"
-             >
-               <ol class="carousel-indicators">
-                 <li
-                   data-target="#carouselExampleCaptions"
-                   data-slide-to="0"
-                   class="active"
-                 ></li>
-                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                 <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-               </ol>
-               <div class="carousel-inner">
-                 <div class="carousel-item active">
-                   <a href="#">
-                     <img style="height: fit-content;" src="assets/img/new-slider4.jpg" class="d-block w-100" alt="..."
-                   /></a>
-                   <!-- <div class="carousel-caption d-none d-md-block">
-                     <h6>پوشاک زنانه</h6>
-                     <p class="bg-warning p-1 shadow">
-                       تابستان 99 همراه با جدیترین پوشاک زنانه
-                     </p>
-                   </div> -->
-                 </div>
-                 <div class="carousel-item">
-                   <a href="#"
-                     ><img style="height: fit-content;" src="assets/img/new-slider3.jpg" class="d-block w-100" alt="..."
-                   /></a>
-                   <!-- <div class="carousel-caption d-none d-md-block">
-                     <h6>جدیدترین گوشی های موبایل</h6>
-                     <p class="bg-success p-1 shadow">گوشی و لوازم جانبی موبایل</p>
-                   </div> -->
-                 </div>
-                 <div class="carousel-item">
-                   <a href="#">
-                     <img style="height: fit-content;" src="assets/img/new-slider1.jpg" class="d-block w-100" alt="..."
-                   /></a>
-                   <!-- <div class="carousel-caption d-none d-md-block">
-                     <h6>لوازم خانگی مدرن</h6>
-                     <p class="bg-danger p-1 shadow">بروز ترین لوازم خانگی</p>
-                   </div> -->
-                 </div>
-                 <div class="carousel-item">
-                   <a href="#">
-                     <img style="height: fit-content;" src="assets/img/new-slider2.jpg" class="d-block w-100" alt="..."
-                   /></a>
-                   <!-- <div class="carousel-caption d-none d-md-block">
-                     <h6>لوازم خانگی مدرن</h6>
-                     <p class="bg-danger p-1 shadow">بروز ترین لوازم خانگی</p>
-                   </div> -->
-                 </div>
-               </div>
-               <a
-                 class="carousel-control-prev"
-                 href="#carouselExampleCaptions"
-                 role="button"
-                 data-slide="prev"
-               >
-                 <span
-                   class="carousel-control-prev-icon"
-                   aria-hidden="true"
-                 ></span>
-                 <span class="sr-only">Previous</span>
-               </a>
-               <a
-                 class="carousel-control-next"
-                 href="#carouselExampleCaptions"
-                 role="button"
-                 data-slide="next"
-               >
-                 <span
-                   class="carousel-control-next-icon"
-                   aria-hidden="true"
-                 ></span>
-                 <span class="sr-only">Next</span>
-               </a>
-             </div>
-           </div>
-           <div class="col-sm-12 col-md-6 col-lg-3 custom-col-lg-3 mt-clg-3">
-             <a href="#">
-               <img class="img-fluid" style="height: fit-content;" src="assets/img/b4.jpg" alt=""
-             /></a>
-           </div>
-           <div class="col-sm-12 col-md-6 col-lg-3   custom-col-lg-3 mt-clg-3 d-flex flex-column justify-content-between"
-           >
-             <a href="#">
-                  <img class="img-fluid mb-cmd-3"  style="height: fit-content;" src="assets/img/b2.jpg" alt=""
-             /></a>
-             <a href="#">
-               <img class="img-fluid" style="height: fit-content;" src="assets/img/b3.jpg" alt=""
-             /></a>
-           </div>
-         </div>
-       </div>
+      
        <!-- start slider nav -->
        <!-- start shipping nav -->
        <div class="container mt-5">
@@ -184,7 +129,7 @@
             
             @foreach ($categories as $category)
            <div class="col-sm-12 col-md-3 col-lg-2 mb-2 mb-md-0 cat-hover">
-             <a href="{{ route('category.products.show', $category->slug) }}" class="text-decoration-none">
+             <a href="#" class="text-decoration-none">
                <div class="d-flex justify-content-center align-items-center bg-white ">
                  <div class="cat-desc ">
                    <p class="mb-2">{{ $category->title }}</p>
@@ -282,7 +227,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
  <!-- start special offers nav -->
  <section class="container mt-5">
     <div class="row">

@@ -49,6 +49,11 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/css/util.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script>
+      document.addEventListener( 'DOMContentLoaded', function () {
+        new Splide( '#image-carousel' ).mount();
+      } );
+    </script>
     <!--===============================================================================================-->
     
 </head>

@@ -138,3 +138,11 @@ i.zmdi.zmdi-shopping-cart {
   width: 120px;
   padding: 5px;
 }
+.splide__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.row.no-gutters {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}

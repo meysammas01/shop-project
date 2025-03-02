@@ -264,5 +264,12 @@ crossorigin="anonymous"
 <!--===============================================================================================-->
 <script src="/js/main.js"></script>
 
+<script>
+document.addEventListener( 'DOMContentLoaded', function () {
+  new Splide( '#image-carousel', {
+    heightRatio: 0.5,
+  } ).mount();
+} );
+</script>
 </body>
 </html>
