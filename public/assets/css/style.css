@@ -271,6 +271,15 @@ footer .row.py-4.bg-white {
 .custom-top-nav .border-left {
     border-color: #ffffff !important;
 }
+.container-fluid.bg-top-nav .container.my-4 {
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+}
+.col-sm-12.col-md-3.d-flex.justify-content-center.align-items-center.mt-csm-3 {
+  /* margin: 0; */
+  /* padding: 0; */
+  position: absolute;
+}
 /* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
     .contact-content {
@@ -298,7 +307,7 @@ footer .row.py-4.bg-white {
     .icon-header-item.cl2.hov-cl1.trans-04.p-l-22.p-r-11.icon-header-noti.js-show-cart {
         margin-right: auto;
         left: 0px;
-        top: -40px;
+        top: -10px;
     }
     .d-flex.justify-content-center.align-items-center.bg-white img {
         width: 65px;
