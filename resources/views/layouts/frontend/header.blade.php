@@ -103,7 +103,7 @@
                   <input
                     type="text" name="search"
                     class="form-control input-top-nav-search"
-                    placeholder="جستجو بین بیش از 250000 کالا ..."
+                    placeholder="جستجوی کالا"
                   />
                   <div class="input-group-append">
                     <button class="flex-c-m trans-04">
