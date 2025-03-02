@@ -129,7 +129,7 @@
             
             @foreach ($categories as $category)
            <div class="col-sm-12 col-md-3 col-lg-2 mb-2 mb-md-0 cat-hover">
-             <a href="#" class="text-decoration-none">
+             <a href="{{route('category.products.show', $category->slug)}}" class="text-decoration-none">
                <div class="d-flex justify-content-center align-items-center bg-white ">
                  <div class="cat-desc ">
                    <p class="mb-2">{{ $category->title }}</p>
