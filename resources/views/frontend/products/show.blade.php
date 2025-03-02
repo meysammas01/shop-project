@@ -1,9 +1,7 @@
 @extends('layouts.frontend.master')
-
-
+ 
 @section('content')
-
-    <!-- breadcrumb -->
+    {{-- <!-- breadcrumb -->
     <div class="container">
         <div class="bread-crumb flex-w p-t-30">
             <a href="index.html" class="mtext-106 cl8 hov-cl1 trans-04">
@@ -14,13 +12,13 @@
             <a href="product.html" class="mtext-106 cl8 hov-cl1 trans-04">
                 کارت ویزیت
                 <i class="fa fa-angle-left m-l-9 m-r-10" aria-hidden="true"></i>
-            </a>
-
+            </a> --}}
+{{-- 
             <span class="mtext-106 cl4">
 				کارت ویزیت مشاور املاک
 			</span>
         </div>
-    </div>
+    </div> --}}
 
 
     <!-- Product Detail -->

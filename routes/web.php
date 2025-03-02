@@ -18,7 +18,10 @@ Route::prefix('')->group(function (){
     Route::get('{product_id}/show', [HomeProductsController::class, 'show'])->name('home.product.show');
     Route::get('{product_id}/addToBasket', [BasketController::class, 'addToBasket'])->name('home.basket.add');
     Route::get('{product_id}/removeFromBasket', [BasketController::class, 'removeFromBasket'])->name('home.basket.remove');
-
+    Route::get('shop', [HomeProductsController::class, 'showProducts'])->name('shop.index');
+    Route::view('/about', 'frontend.about')->name('about.page');   // نمایش صفحه درباره ما
+    Route::view('/contact', 'frontend.contact')->name('contact.page'); // نمایش صفحه تماس با ما    
+    Route::get('category/{slug}', [HomeProductsController::class, 'showCategoryProducts'])->name('category.products.show');
 });
 
 Route::prefix('admin')->group(function (){

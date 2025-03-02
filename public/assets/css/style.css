@@ -122,9 +122,9 @@ input.form-control.input-top-nav-search {
   width: 500px !important;
 }
 
-form {
+/* form {
   display: flex !important;
-}
+} */
 i.zmdi.zmdi-search {
   font-size: 24px;
   background: white;

@@ -72,5 +72,34 @@ class ProductsController extends Controller
 
         return $object->{$methodName}();
     }
+    public function showProducts(Request $request)
+    {
+        $products = null;
+
+        if(isset($request->filter, $request->action))
+        {
+            $products = $this->findFilter($request?->filter, $request?->action) ?? Product::all();
+        }else if($request->has('search'))
+        {
+            $products = Product::where('title', 'LIKE' ,'%'.$request->input('search') . '%')->get();
+        }else{
+            $products = Product::all();
+        }   
+                           // دریافت دسته‌بندی‌ها
+                           $categories = Category::withCount('products')->get();
+        return view('frontend.store', compact('products', 'categories'));     
+    }
+    public function showCategoryProducts($slug)
+{
+    // پیدا کردن دسته‌بندی بر اساس slug
+    $category = Category::where('slug', $slug)->firstOrFail();
+
+    // دریافت محصولات مربوط به این دسته‌بندی
+    $products = $category->products()->paginate(12); // با قابلیت صفحه‌بندی
+
+    // ارسال اطلاعات به ویو
+    return view('frontend.products.category', compact('category', 'products'));
+}
+
  
 }
