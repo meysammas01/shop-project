@@ -41,19 +41,19 @@
                           </div>
                       </div>
                       <!-- /.card-header -->
-                      <div class="table table-striped table-valign-middle mb-0">
+                      <div class="table table-striped table-valign-middle mb-0 table-responsive">
                           <table class="table table-hover mb-0">
                               <tbody>
                               <tr>
                                   <th>آیدی</th>
                                   <th>عنوان</th>
                                   <th>دسته بندی</th>
-                                  <th>مالک طرح</th>
-                                  <th>توضیحات</th>
-                                  <th>لینک دمو</th>
-                                  <th>لینک دانلود</th>
+                                  <th class="d-none d-sm-table-cell">فروشنده</th>
+                                  <th class="d-none d-sm-table-cell">توضیحات</th>
+                                  {{-- <th>لینک دمو</th> --}}
+                                  {{-- <th>لینک دانلود</th> --}}
                                   <th>قیمت</th>
-                                  <th>تاریخ ایجاد</th>
+                                  <th class="d-none d-sm-table-cell">تاریخ ایجاد</th>
                                   <th>عملیات</th>
                               </tr>
 
@@ -64,16 +64,16 @@
                                     <img src="/{{ $product->thumbnail_url }}" class="product_img">
                                     {{ $product->title }}</td>
                                 <td>{{ $product->category->title }}</td>
-                                <td>{{ $product->owner->name }}</td>
-                                <td>{!! substr($product->description, 0, 10) !!}</td>
-                                <td>
+                                <td class="d-none d-sm-table-cell">{{ $product->owner->name }}</td>
+                                <td class="d-none d-sm-table-cell">{!! substr($product->description, 0, 10) !!}</td>
+                                {{-- <td>
                                     <a href="{{ route('admin.products.download.demo', $product->id) }}" class="btn btn-default btn-icons" title="لینک دمو"><i class="fa fa-link"></i></a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.products.download.source', $product->id) }}" class="btn btn-default btn-icons" title="لینک دانلود"><i class="fa fa-link"></i></a>
-                                </td>
+                                </td> --}}
                                 <td>{{ $product->price }} تومان</td>
-                                <td>{{ $product->created_at }}</td>
+                                <td class="d-none d-sm-table-cell">{{ $product->created_at }}</td>
                                 <td>
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-default btn-icons"><i class="fa fa-edit"></i></a>
                                     <form action="{{ route('admin.products.delete', $product->id) }}" method="post" style="display: inline">

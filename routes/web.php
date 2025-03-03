@@ -12,6 +12,16 @@ use App\Http\Controllers\Home\ProductsController as HomeProductsController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+
+
 Route::prefix('')->group(function (){
     Route::get('checkout', [CheckoutController::class, 'show'])->name('home.checkout');
     Route::get('', [HomeProductsController::class, 'index'])->name('home.products.all');
@@ -24,7 +34,7 @@ Route::prefix('')->group(function (){
     Route::get('category/{slug}', [HomeProductsController::class, 'showCategoryProducts'])->name('category.products.show');
 });
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->middleware('admin')->group(function (){
     
     Route::prefix('categories')->group(function (){
         Route::get('', [CategoriesController::class, 'all'])->name('admin.categories.all');
@@ -71,3 +81,4 @@ Route::prefix('payment')->group(function (){
     Route::post('pay', [PaymentController::class, 'pay'])->name('payment.pay');
     Route::post('callback', [PaymentController::class, 'callback'])->name('payment.callback');
 });
+require __DIR__.'/auth.php';

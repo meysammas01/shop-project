@@ -52,6 +52,18 @@
                                       </div>
                                   </div>
                                   <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>رمز عبور</label>
+                                        <input type="password" class="form-control" name="password" placeholder="رمز عبور را وارد کنید">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>تکرار رمز عبور</label>
+                                        <input type="password" class="form-control" name="password_confirmation" placeholder="تکرار رمز عبور">
+                                    </div>
+                                </div>
+                                  <div class="col-md-6">
                                       <div class="form-group">
                                           <label>نقش کاربری</label>
                                           <select class="form-control" name="role">

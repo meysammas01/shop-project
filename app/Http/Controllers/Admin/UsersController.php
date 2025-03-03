@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Users\StoreRequest;
 use App\Http\Requests\Admin\Users\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -25,18 +26,19 @@ class UsersController extends Controller
     public function store(StoreRequest $request)
     {
         $validatedData = $request->validated();
-
+    
         $createdUser = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'mobile' => $validatedData['mobile'],
-            'role' => $validatedData['role']
+            'role' => $validatedData['role'],
+            'password' => Hash::make($validatedData['password']), // هش کردن رمز عبور
         ]);
-
-        if(!$createdUser){
+    
+        if (!$createdUser) {
             return back()->with('failed', 'کاربر ایجاد نشد');
         }
-
+    
         return back()->with('success', 'کاربر ایجاد شد');
     }
 

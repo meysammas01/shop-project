@@ -271,17 +271,16 @@ footer .row.py-4.bg-white {
 .custom-top-nav .border-left {
     border-color: #ffffff !important;
 }
-.container-fluid.bg-top-nav .container.my-4 {
-  margin-bottom: 5px !important;
-  margin-top: 5px !important;
-}
-.col-sm-12.col-md-3.d-flex.justify-content-center.align-items-center.mt-csm-3 {
-  /* margin: 0; */
-  /* padding: 0; */
-  position: absolute;
-}
+
 /* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
+  .container-fluid.bg-top-nav .container.my-4 {
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+  }
+  .col-sm-12.col-md-3.d-flex.justify-content-center.align-items-center.mt-csm-3 {
+    position: absolute;
+  }
     .contact-content {
         flex-direction: column;
         align-items: center;

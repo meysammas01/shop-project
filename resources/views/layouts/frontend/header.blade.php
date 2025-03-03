@@ -512,7 +512,7 @@
                       </li>
                     </ul>
                     {{-- <a href="{{route('admin.products.create')}}" class="text-warning text-decoration-none login-btn" data-toggle="modal" data-target="#login-form"> --}}
-                    <a href="{{route('admin.products.create')}}" class="text-warning text-decoration-none login-btn">
+                    <a href="{{ route('login') }}" class="text-warning text-decoration-none login-btn">
                       <i class="far fa-user"></i>
                       <span>ورود مدیر</span>
                     </a>

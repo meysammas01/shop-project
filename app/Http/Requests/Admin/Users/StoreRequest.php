@@ -27,7 +27,8 @@ class StoreRequest extends FormRequest
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|min:3|max:255|unique:users,email',
             'mobile' => 'required|digits:11|unique:users,mobile',
-            'role' => 'required|in:user,admin,seller'
+            'role' => 'required|in:user,admin,seller',
+            'password' => 'required|string|min:6|confirmed' // اضافه کردن قوانین اعتبارسنجی
         ];
     }
 }

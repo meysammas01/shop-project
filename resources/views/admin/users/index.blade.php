@@ -45,9 +45,9 @@
                                   <th>آیدی</th>
                                   <th>نام و نام خانوادگی</th>
                                   <th>ایمیل</th>
-                                  <th>موبایل</th>
+                                  <th class="d-none d-sm-table-cell">موبایل</th>
                                   <th>نقش کاربری</th>
-                                  <th>تاریخ عضویت</th>
+                                  <th class="d-none d-sm-table-cell">تاریخ عضویت</th>
                                   <th>عملیات</th>
                               </tr>
 
@@ -56,9 +56,9 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->mobile }}</td>
+                                <td class="d-none d-sm-table-cell">{{ $user->mobile }}</td>
                                 <td>{{ $user->role == 'admin' ? 'ادمین' : 'کاربر' }}</td>
-                                <td>{{ $user->created_at }}</td>
+                                <td class="d-none d-sm-table-cell">{{ $user->created_at }}</td>
                                 <td>
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-default btn-icons"><i class="fa fa-edit"></i></a>
                                     
