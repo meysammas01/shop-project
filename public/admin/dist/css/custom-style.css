@@ -414,3 +414,10 @@ i.fa.fa-trash {
     font-size: 10px;
 }
 }
+a.home-dashboard {
+    display: inline;
+    float: left;
+    font-family: "Vazir";
+    font-size: 25px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}

@@ -11,6 +11,10 @@
             <h1 class="m-0 text-dark">
                 <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 پروفایل ویرایش
+                <a href="{{route('home.products.all')}}" class="home-dashboard nav-link">
+                    {{-- <img src="/images/icons/logo-01.png" style="filter: brightness(0) invert(1);"> --}}
+                خانه 
+                </a>
             </h1>
           </div><!-- /.col -->
         </div><!-- /.row -->

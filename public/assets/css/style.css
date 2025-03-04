@@ -274,13 +274,13 @@ footer .row.py-4.bg-white {
 
 /* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
-  .container-fluid.bg-top-nav .container.my-4 {
-    margin-bottom: 5px !important;
-    margin-top: 5px !important;
-  }
-  .col-sm-12.col-md-3.d-flex.justify-content-center.align-items-center.mt-csm-3 {
-    position: absolute;
-  }
+    .container-fluid.bg-top-nav .container.my-4 {
+        margin-bottom: 5px !important;
+        margin-top: 5px !important;
+    }
+    .col-sm-12.col-md-3.d-flex.justify-content-center.align-items-center.mt-csm-3 {
+        position: absolute;
+    }
     .contact-content {
         flex-direction: column;
         align-items: center;
@@ -319,8 +319,11 @@ footer .row.py-4.bg-white {
 a.text-warning.text-decoration-none.login-btn {
     padding: 5px;
     margin: 0px 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 i.fa.fa-search {
     color: #ffffff;
 }
+

@@ -7,11 +7,8 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item">
-                        <a href="{{route('home.products.all')}}" class="nav-link text-center mb-4">
-                            {{-- <img src="/images/icons/logo-01.png" style="filter: brightness(0) invert(1);"> --}}
-                        خانه 
-                        </a>
+
+                        <li>
                         <a href="#" class="nav-link text-center mb-4">
                             {{-- <img src="/images/icons/logo-01.png" style="filter: brightness(0) invert(1);"> --}}
                         داشبورد کاربری
