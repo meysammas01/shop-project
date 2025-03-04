@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'demo_url' => 'required|image|mimes:png,jpg,jpeg',
             'source_url' => 'required|image|mimes:png,jpg,jpeg',
             'description' => 'required|min:10',
+            'stock' => 'required|integer|min:0', // اعتبارسنجی برای موجودی
         ];
     }
 }

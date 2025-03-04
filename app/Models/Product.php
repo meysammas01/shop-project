@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
+        // متد برای کاهش موجودی محصول
+        public function reduceStock($quantity = 1)
+        {
+            if ($this->stock >= $quantity) {
+                // کاهش موجودی محصول
+                $this->stock -= $quantity;
+                $this->save(); // ذخیره تغییرات در پایگاه داده
+                return true; // موفقیت
+            }
+            return false; // اگر موجودی کافی نبود
+        }
 }

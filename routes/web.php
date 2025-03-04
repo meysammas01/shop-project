@@ -11,6 +11,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\ProductsController as HomeProductsController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserPanelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +48,7 @@ Route::prefix('admin')->middleware('admin')->group(function (){
 
     Route::prefix('products')->group(function (){
         Route::get('', [ProductsController::class, 'all'])->name('admin.products.all');
+        Route::get('stock', [ProductsController::class, 'allForStock'])->name('admin.products.stock');
         Route::get('create', [ProductsController::class, 'create'])->name('admin.products.create');
         Route::post('', [ProductsController::class, 'store'])->name('admin.products.store');
         Route::delete('{product_id}/delete', [ProductsController::class, 'delete'])->name('admin.products.delete');
@@ -75,10 +77,20 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     });
 
 });
+Route::prefix('user')->middleware('auth')->group(function () {
+    Route::get('/dashboard', [UserPanelController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('/orders', [UserPanelController::class, 'orders'])->name('user.orders');
+    Route::get('/payments', [UserPanelController::class, 'payments'])->name('user.payments');
+    Route::get('/profile', [UserPanelController::class, 'profile'])->name('user.profile');
+    Route::post('/profile/update', [UserPanelController::class, 'updateProfile'])->name('user.profile.update');
+});
 
 
 Route::prefix('payment')->group(function (){
     Route::post('pay', [PaymentController::class, 'pay'])->name('payment.pay');
-    Route::post('callback', [PaymentController::class, 'callback'])->name('payment.callback');
+    Route::get('callback', [PaymentController::class, 'callback'])->name('payment.callback');
+//     Route::get('success', [PaymentController::class, 'success'])->name('payment.success');
+// Route::get('failed', [PaymentController::class, 'failed'])->name('payment.failed');
 });
+
 require __DIR__.'/auth.php';

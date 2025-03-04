@@ -55,7 +55,15 @@
                                           <input type="text" class="form-control" name="price" placeholder="قیمت را وارد کنید" value="{{ $product->price }}">
                                       </div>
                                   </div>
+                                                                <!-- در صفحه edit.blade.php -->
+<div class="col-md-3">
+    <div class="form-group">
+        <label>تعداد موجودی</label>
+        <input type="number" class="form-control" name="stock" value="{{ $product->stock }}" min="0">
+    </div>
+</div>
                               </div>
+
                               <div class="row">
                                   <div class="col-md-4">
                                       <div class="form-group">

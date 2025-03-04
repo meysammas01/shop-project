@@ -514,7 +514,11 @@
                     {{-- <a href="{{route('admin.products.create')}}" class="text-warning text-decoration-none login-btn" data-toggle="modal" data-target="#login-form"> --}}
                     <a href="{{ route('login') }}" class="text-warning text-decoration-none login-btn">
                       <i class="far fa-user"></i>
-                      <span>ورود مدیر</span>
+                      <span>ورود</span>
+                    </a>
+                    <a href="{{ route('register') }}" class="text-warning text-decoration-none login-btn">
+                      <i class="far fa-user"></i>
+                      <span>ثبت نام</span>
                     </a>
                     <div class="modal fade" id="login-form" tabindex="-1" role="dialog">
                       <div class="modal-dialog modal-dialog-centered show" role="document">

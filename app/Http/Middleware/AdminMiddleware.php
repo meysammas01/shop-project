@@ -11,7 +11,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {
-            return redirect('/'); // اگر مدیر نیست، به صفحه اصلی هدایت شود
+            return redirect('user/profile'); // اگر مدیر نیست، به صفحه اصلی هدایت شود
         }
         return $next($request);
     }

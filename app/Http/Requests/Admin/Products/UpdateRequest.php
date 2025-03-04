@@ -31,6 +31,8 @@ class UpdateRequest extends FormRequest
             'demo_url' => 'nullable|image|mimes:png,jpg,jpeg',
             'source_url' => 'nullable|image|mimes:png,jpg,jpeg',
             'description' => 'required|min:10',
+            'stock' => 'required|integer|min:0', // اعتبارسنجی برای موجودی
+
         ];
     }
 }

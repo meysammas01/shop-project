@@ -55,6 +55,12 @@
                                       </div>
                                   </div>
                               </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>تعداد موجودی</label>
+                                    <input type="number" class="form-control" name="stock" placeholder="تعداد موجودی را وارد کنید" min="0">
+                                </div>
+                            </div>
                               <div class="row">
                                   <div class="col-md-4">
                                       <div class="form-group">

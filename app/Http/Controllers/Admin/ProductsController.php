@@ -19,6 +19,12 @@ class ProductsController extends Controller
         
         return view('admin.products.all', compact('products'));
     }
+    public function allForStock()
+    {
+        $products = Product::paginate(10);
+        
+        return view('admin.products.stock', compact('products'));
+    }
 
     public function create()
     {
@@ -31,14 +37,14 @@ class ProductsController extends Controller
     {
         $validatedData = $request->validated();
        
-        $admin = User::where('email', 'admin@gmail.com')->first();
 
         $createdProduct = Product::create([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'category_id' => $validatedData['category_id'],
             'price' => $validatedData['price'],
-            'owner_id' => $admin->id,
+            'owner_id' => auth()->id(),
+            'stock' => $validatedData['stock'], // دریافت تعداد موجودی
         ]);
 
 
@@ -62,8 +68,8 @@ class ProductsController extends Controller
 
     public function update(UpdateRequest $request, $product_id)
     {
-        $validatedData = $request->validated();
 
+        $validatedData = $request->validated();
         $product = Product::findOrFail($product_id);
 
         $updatedProduct = $product->update([
@@ -71,6 +77,7 @@ class ProductsController extends Controller
             'description' => $validatedData['description'],
             'category_id' => $validatedData['category_id'],
             'price' => $validatedData['price'],
+            'stock' => $validatedData['stock'], // به‌روزرسانی موجودی
         ]);
 
 
@@ -154,4 +161,5 @@ class ProductsController extends Controller
             return false;
         }
     }
+
 }

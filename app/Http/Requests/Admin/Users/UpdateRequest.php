@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|min:3|max:255|unique:users,email,'. $this->request->get('user_id') .'',
             'mobile' => 'required|digits:11|unique:users,mobile,'. $this->request->get('user_id') .'',
-            'role' => 'required|in:user,admin,seller'
+            'role' => 'required|in:user,admin,seller',
         ];
     }
 }
