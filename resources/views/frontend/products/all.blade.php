@@ -57,13 +57,13 @@
        <div class="container mt-5">
          <div class="row">
            <div
-             class="col-6 col-sm12 col-md-6 col-lg-3 col-xl-2 offset-xl-1 mb-2 shipping-wrapper"
+             class="col-6 col-sm12 col-md-6 col-lg-3 col-xl-2 mb-2 shipping-wrapper"
            >
              <div class="bg-light">
                <img src="assets/img/shipping.png" alt="" class="float-right" />
                <p>ارسال رایگان</p>
                <p>
-                 به تمام نقاط کشور
+                 به تمام نقاط
                </p>
              </div>
            </div>
@@ -72,7 +72,7 @@
                <img src="assets/img/shipping2.png" alt="" class="float-right" />
                <p>ارسال رایگان</p>
                <p>
-                 به تمام نقاط کشور
+                 به تمام نقاط
                </p>
              </div>
            </div>
@@ -81,7 +81,7 @@
                <img src="assets/img/shipping3.png" alt="" class="float-right" />
                <p>ارسال رایگان</p>
                <p>
-                 به تمام نقاط کشور
+                 به تمام نقاط
                </p>
              </div>
            </div>
@@ -90,7 +90,7 @@
                <img src="assets/img/shipping4.png" alt="" class="float-right" />
                <p>ارسال رایگان</p>
                <p>
-                 به تمام نقاط کشور
+                 به تمام نقاط
                </p>
              </div>
            </div>
@@ -99,7 +99,7 @@
                <img src="assets/img/shipping5.png" alt="" class="float-right" />
                <p>ارسال رایگان</p>
                <p>
-                 به تمام نقاط کشور
+                 به تمام نقاط
                </p>
              </div>
            </div>
@@ -108,7 +108,7 @@
               <img src="assets/img/shipping5.png" alt="" class="float-right" />
               <p>ارسال رایگان</p>
               <p>
-                به تمام نقاط کشور
+                به تمام نقاط
               </p>
             </div>
           </div>
