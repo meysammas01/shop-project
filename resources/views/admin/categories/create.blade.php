@@ -11,6 +11,7 @@
             <h1 class="m-0 text-dark">
                 <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 دسته بندی ها / افزودن
+                <a class="home-admin btn btn-primary float-left text-white py-2 px-4 mr-2" href="{{ route('home.products.all') }}">خانه</a>
                 <a class="btn btn-primary float-left text-white py-2 px-4" href="{{ route('admin.categories.all') }}">بازگشت به صفحه دسته بندی ها</a>
             </h1>
           </div><!-- /.col -->

@@ -11,9 +11,8 @@
             <h1 class="m-0 text-dark">
                 <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 پرداخت های شما
-                <a href="{{route('home.products.all')}}" class="home-dashboard nav-link">
-                    خانه 
-                </a>
+                <a class="btn btn-primary float-left text-white py-2 px-4" href="{{route('home.products.all')}}">خانه</a>
+
             </h1>
                 {{-- <img src="/images/icons/logo-01.png" style="filter: brightness(0) invert(1);"> --}}
 
