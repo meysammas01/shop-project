@@ -81,7 +81,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.products.stock') }}" class="nav-link">
-                            <i class="nav-icon fa fa-dollar"></i>
+                            <i class="nav-icon fa fa-search"></i>
                             <p class="text">انبار گردانی محصولات</p>
                         </a>
                     </li>

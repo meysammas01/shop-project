@@ -1,16 +1,32 @@
 @extends('layouts.user.master')
 
 @section('content')
-<div class="content-wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
     <div class="content-header">
-        <div class="container-fluid">
-            <h1 class="m-0 text-dark">ویرایش پروفایل</h1>
-        </div>
+      <div class="container-fluid">
+        <div class="row mb-2 mt-4">
+          <div class="col-12">
+            <h1 class="m-0 text-dark">
+                <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                پروفایل ویرایش
+            </h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
 
+    <!-- Main content -->
     <div class="content">
-        <div class="container-fluid">
-            <form action="{{ route('user.profile.update') }}" method="POST">
+      <div class="container-fluid">
+          @include('errors.message')
+          <div class="row mt-5">
+              <div class="col-md-12">
+                  <div class="card card-defualt">
+                      <!-- form start -->
+            <form action="{{ route('user.profile.update') }}" method="POST" style="padding: 20px;">
                 @csrf
                 <div class="form-group">
                     <label>نام</label>
@@ -29,7 +45,17 @@
 
                 <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
             </form>
-        </div>
-    </div>
+
+
 </div>
+</div>
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
 @endsection

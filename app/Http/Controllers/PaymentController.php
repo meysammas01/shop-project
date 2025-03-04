@@ -121,55 +121,92 @@ class PaymentController extends Controller
 
     public function callback(Request $request)
     {
-        // چاپ تمام داده‌های دریافتی از درگاه
+        // ثبت لاگ برای بررسی اطلاعات بازگشتی از درگاه
         Log::info('Zarinpal Callback Data: ', $request->all());
     
         try {
             // بررسی اینکه آیا Authority موجود است
-            if (!$request->has('Authority')) {
-                throw new \Exception('شناسه پرداخت (Authority) موجود نیست');
+            if (!$request->has('Authority') || !$request->has('Status')) {
+                throw new \Exception('شناسه پرداخت یا وضعیت پرداخت ارسال نشده است.');
             }
     
-            // جستجو برای پیدا کردن رکورد پرداخت بر اساس Authority
+            // اگر پرداخت ناموفق باشد
+            if ($request->Status !== "OK") {
+                throw new \Exception('پرداخت توسط کاربر لغو شد.');
+            }
+    
+            // پیدا کردن پرداخت بر اساس Authority
             $payment = Payment::where('ref_id', $request->Authority)
                 ->where('status', 'unpaid')
                 ->first();
     
-            // بررسی اینکه آیا پرداختی با این Authority پیدا شده است
             if (!$payment) {
-                throw new \Exception('پرداختی با این شناسه یافت نشد');
+                throw new \Exception('پرداختی با این شناسه یافت نشد.');
             }
     
-            // فرض بر این است که اینجا پاسخ درگاه بررسی شده و تایید شده است.
-            if ($payment->status === 'unpaid') {
-                $payment->status = 'paid'; // تغییر وضعیت پرداخت به 'paid'
-                $payment->save();
+            // درخواست تأیید پرداخت به زرین‌پال
+            $data = [
+                "merchant_id" => "23451234567890abcdef1234567890abcdef", // مرچنت کد زرین‌پال
+                "authority" => $request->Authority,
+                "amount" => $payment->order->amount // مبلغ پرداخت شده
+            ];
     
-                // دریافت سفارش مرتبط با پرداخت
-                $order = $payment->order;
+            $jsonData = json_encode($data);
     
-                // کاهش موجودی محصولات
-                foreach ($order->orderItems as $orderItem) {
-                    $product = Product::find($orderItem->product_id);
+            $ch = curl_init('https://sandbox.zarinpal.com/pg/v4/payment/verify.json'); // آدرس تأیید پرداخت
+            curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($jsonData)
+            ]);
     
-                    if ($product) {
-                        // کاهش موجودی محصول
-                        $product->stock -= $orderItem->quantity;
-                        $product->save();
+            $result = curl_exec($ch);
+            $err = curl_error($ch);
+            curl_close($ch);
+    
+            if ($err) {
+                throw new \Exception("خطا در تأیید پرداخت: " . $err);
+            }
+    
+            $result = json_decode($result, true);
+    
+            // بررسی وضعیت تأیید پرداخت
+            if (!isset($result['data']['code']) || $result['data']['code'] != 100) {
+                throw new \Exception('پرداخت تأیید نشد.');
+            }
+    
+            // ذخیره شماره تراکنش
+            $payment->res_id = $result['data']['ref_id']; // شماره پیگیری زرین‌پال
+            $payment->status = 'paid';
+            $payment->save();
+    
+            // دریافت سفارش مرتبط با پرداخت
+            $order = $payment->order;
+            $order->status = 'paid';
+            $order->save();
+    
+            // کاهش موجودی محصولات خریداری‌شده
+            foreach ($order->orderItems as $orderItem) {
+                $product = Product::find($orderItem->product_id);
+    
+                if ($product) {
+                    if ($product->stock >= $orderItem->quantity) {
+                        $product->stock -= $orderItem->quantity; // کاهش موجودی به اندازه quantity
+                    } else {
+                        $product->stock = 0; // در صورت کمبود، موجودی را صفر کن
                     }
+                    $product->save();
                 }
-                
-    
-                // اقدامات اضافی مانند ارسال ایمیل یا پیامک
-    
-                return redirect()->route('home.checkout')->with('success', 'پرداخت موفقیت‌آمیز بود.');
             }
     
-            throw new \Exception('پرداخت ناموفق بود.');
-    
+            return redirect()->route('home.checkout')->with('success', 'پرداخت موفقیت‌آمیز بود و محصولات به‌روز شدند.');
         } catch (\Exception $e) {
             return back()->with('failed', $e->getMessage());
         }
     }
+    
     
 }

@@ -15,7 +15,7 @@
                     </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fa fa-image"></i>
+                            <i class="nav-icon fa fa-user"></i>
                             <p>
                                 پروفایل کاربری 
                                 <i class="right fa fa-angle-left"></i>
@@ -24,7 +24,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('user.profile') }}" class="nav-link">
-                                    <i class="fa fa-plus nav-icon"></i>
+                                    <i class="fa fa-edit nav-icon"></i>
                                     <p>ویرایش پروفایل</p>
                                 </a>
                             </li>
@@ -32,7 +32,7 @@
                     </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-user"></i>
+                            <i class="nav-icon fa fa-shopping-cart"></i>
                             <p>
                                 مدیریت سفارشات
                                 <i class="fa fa-angle-left right"></i>
@@ -41,7 +41,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('user.orders') }}" class="nav-link">
-                                    <i class="fa fa-plus nav-icon"></i>
+                                    <i class="fa fa-shopping-cart nav-icon"></i>
                                     <p>سفارشات</p>
                                 </a>
                             </li>
@@ -49,7 +49,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('user.payments') }}" class="nav-link">
-                                    <i class="fa fa-list nav-icon"></i>
+                                    <i class="fa fa-dollar nav-icon"></i>
                                     <p>پرداخت ها</p>
                                 </a>
                             </li>
