@@ -103,6 +103,15 @@
                </p>
              </div>
            </div>
+           <div class="col-6 col-sm12 col-md-6 col-lg-3 col-xl-2 mb-2 shipping-wrapper">
+            <div class="bg-light">
+              <img src="assets/img/shipping5.png" alt="" class="float-right" />
+              <p>ارسال رایگان</p>
+              <p>
+                به تمام نقاط کشور
+              </p>
+            </div>
+          </div>
          </div>
        </div>
        <!-- end shipping nav -->
