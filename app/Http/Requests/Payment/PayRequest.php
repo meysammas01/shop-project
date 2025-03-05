@@ -24,9 +24,7 @@ class PayRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'mobile' => 'required|digits:11',
-            'email' => 'required|email',
+
         ];
     }
 }

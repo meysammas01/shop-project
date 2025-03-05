@@ -16,17 +16,22 @@ use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
+    
     public function pay(PayRequest $request)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'لطفا وارد حساب کاربری خود شوید.');
+        }
         $validatedData = $request->validated();
     
-        $user = User::firstOrCreate([
-            'email' => $validatedData['email'],
-        ], [
-            'name' => $validatedData['name'],
-            'mobile' => $validatedData['mobile'],
-        ]);
-    
+        // $user = User::firstOrCreate([
+        //     'email' => $validatedData['email'],
+        // ], [
+        //     'name' => $validatedData['name'],
+        //     'mobile' => $validatedData['mobile'],
+        // ]);
+        $user = auth()->user();
+
         try {
             $orderItems = json_decode(Cookie::get('basket'), true);
     

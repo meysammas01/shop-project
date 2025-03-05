@@ -68,9 +68,9 @@
 
             <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
                 <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                    <h4 class="mtext-109 cl2 p-b-30">
+                    {{-- <h4 class="mtext-109 cl2 p-b-30">
                         اطلاعات کاربری
-                    </h4>
+                    </h4> --}}
 
                     <form action="{{ route('payment.pay') }}" method="post">
                         @csrf
@@ -78,7 +78,7 @@
                             <div class="w-full">
                                 <div class="p-t-15">
 
-                                    <div class="bor8 bg0 m-b-12">
+                                    {{-- <div class="bor8 bg0 m-b-12">
                                         <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="نام و نام خانوادگی">
                                     </div>
                                     <div class="bor8 bg0 m-b-12">
@@ -87,7 +87,7 @@
 
                                     <div class="bor8 bg0 m-b-22">
                                         <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="email" placeholder="ایمیل">
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
