@@ -52,11 +52,14 @@ class PaymentController extends Controller
                 'user_id' => $user->id,
             ]);
     
-            $orderItemsForCreatedOrder = $products->map(function($product) {
-                $currentProduct = $product->only(['price', 'id']);
-                $currentProduct['product_id'] = $currentProduct['id'];
-                unset($currentProduct['id']);
-                return $currentProduct;
+            $orderItemsForCreatedOrder = collect($orderItems)->map(function($quantity, $productId) use ($products) {
+                $product = $products->find($productId);
+            
+                return [
+                    'product_id' => $productId,
+                    'price' => (int) $product->price, // اطمینان از مقدار عددی
+                    'quantity' => (int) $quantity, // اطمینان از مقدار عددی
+                ];
             });
     
             $createdOrder->orderItems()->createMany($orderItemsForCreatedOrder->toArray());
@@ -196,7 +199,7 @@ class PaymentController extends Controller
             // کاهش موجودی محصولات خریداری‌شده
             foreach ($order->orderItems as $orderItem) {
                 $product = Product::find($orderItem->product_id);
-    
+            
                 if ($product) {
                     if ($product->stock >= $orderItem->quantity) {
                         $product->stock -= $orderItem->quantity; // کاهش موجودی به اندازه quantity
@@ -206,6 +209,7 @@ class PaymentController extends Controller
                     $product->save();
                 }
             }
+            
     
             return redirect()->route('home.checkout')->with('success', 'پرداخت موفقیت‌آمیز بود و محصولات به‌روز شدند.');
         } catch (\Exception $e) {
